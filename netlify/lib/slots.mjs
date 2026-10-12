@@ -23,7 +23,7 @@ export function isSlot(minOfDay, { start, end, interval }) {
 // Look at the current minute and the 2 before it (cron can run a little late). Returns the slot time (ms) or null.
 export function dueSlot(nowMs, rec) {
   const base = Math.floor(nowMs / 60000) * 60000;
-  for (let k = 0; k <= 2; k++) {
+  for (let k = 0; k <= 10; k++) {
     const t = base - k * 60000;
     if (t <= (rec.lastSent || 0)) break;
     if (isSlot(localMinutes(new Date(t), rec.tz), rec.settings)) return t;
