@@ -1,0 +1,14 @@
+{
+  "name": "Pani Pal — Water Reminder",
+  "short_name": "Pani Pal",
+  "description": "A simple installable water drinking reminder.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4fbf9",
+  "theme_color": "#087f73",
+  "icons": [
+    {"src":"./icons/icon-192.png","sizes":"192x192","type":"image/png","purpose":"any maskable"},
+    {"src":"./icons/icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}
+  ]
+}

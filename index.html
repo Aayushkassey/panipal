@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#087f73">
+  <meta name="description" content="Pani Pal helps you remember to drink water.">
+  <title>Pani Pal — Water Reminder</title>
+  <link rel="manifest" href="./manifest.json">
+  <link rel="apple-touch-icon" href="./icons/icon-192.png">
+  <link rel="icon" href="./icons/icon-192.png">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div class="brand-mark" aria-hidden="true">💧</div>
+      <div class="brand-text"><p class="eyebrow">YOUR DAILY HYDRATION BUDDY</p><h1>Pani Pal</h1></div>
+      <button id="installBtn" class="install-btn" type="button">＋ Install App</button>
+    </header>
+
+    <section class="hero card">
+      <div class="hero-copy">
+        <span class="pill"><span class="live-dot"></span> Stay hydrated</span>
+        <h2>One sip at a time.</h2>
+        <p>Little reminders, better hydration. Set your hours and let Pani Pal nudge you.</p>
+        <button id="heroInstallBtn" class="hero-install" type="button">📲 Install Pani Pal</button>
+      </div>
+      <div class="water-art" aria-hidden="true"><div class="water-drop">💧</div><span class="spark spark-one">✦</span><span class="spark spark-two">✧</span></div>
+    </section>
+
+    <section class="card settings-card">
+      <div class="section-heading"><div><p class="eyebrow">MAKE IT YOURS</p><h2>Reminder schedule</h2></div><span class="heading-icon">⏰</span></div>
+      <form id="settingsForm">
+        <div class="time-grid">
+          <label>Start time<input id="startTime" type="time" value="08:00" required></label>
+          <label>End time<input id="endTime" type="time" value="22:00" required></label>
+        </div>
+        <label class="interval-label">Remind me every
+          <div class="interval-control"><select id="interval" aria-label="Reminder interval">
+            <option value="30">30 minutes</option><option value="45">45 minutes</option><option value="60" selected>1 hour</option><option value="90">1 hour 30 minutes</option><option value="120">2 hours</option><option value="180">3 hours</option><option value="custom">Custom interval</option>
+          </select><span>↻</span></div>
+        </label>
+        <label id="customWrap" class="custom-wrap" hidden>Custom interval (minutes)<input id="customInterval" type="number" min="5" max="720" step="5" value="60"></label>
+        <div class="schedule-note"><span>ⓘ</span><p>Reminders work most reliably while this app is open. Browser and phone settings can affect background alerts.</p></div>
+        <button type="submit" class="primary-btn">Save schedule</button>
+      </form>
+    </section>
+
+    <section class="status-card card">
+      <div class="status-top"><div><p class="eyebrow">YOUR REMINDERS</p><h2 id="statusTitle">Ready when you are</h2></div><div class="status-icon" id="statusIcon">🔔</div></div>
+      <p id="statusText" class="status-text">Set your hours, choose an interval, and start your hydration routine.</p>
+      <div class="next-reminder"><span class="next-icon">◷</span><div><small>Next reminder</small><strong id="nextTime">Not scheduled</strong></div></div>
+      <div class="button-row"><button id="toggleBtn" class="primary-btn" type="button">▶ Start reminders</button><button id="testBtn" class="secondary-btn" type="button">Test popup</button></div>
+      <p class="permission-hint" id="permissionHint">Allow notifications when prompted. Sound and background behavior depend on your device and browser.</p>
+    </section>
+
+    <section class="install-card card">
+      <div class="install-card-icon">📲</div>
+      <div class="install-card-content"><p class="eyebrow">TAKE IT WITH YOU</p><h2>Install on your phone</h2><p id="installSummary">Add Pani Pal to your Home Screen for quick access.</p></div>
+      <button id="openInstallHelp" class="secondary-btn" type="button">How to install</button>
+    </section>
+
+    <footer>
+      <p>Made with 💙 for your next glass of water || <strong>Aayush</strong></p>
+      <p class="footer-sub">© 2026 Pani Pal · Stay hydrated</p>
+    </footer>
+  </main>
+
+  <dialog id="waterDialog" class="water-dialog">
+    <div class="dialog-drop">💧</div><p class="eyebrow">A LITTLE REMINDER</p><h2>Time to drink water!</h2><p>Your body will thank you. Take a few sips now. 💙</p><button id="dismissDialog" class="primary-btn">Okay, I'll drink!</button>
+  </dialog>
+
+  <dialog id="installDialog" class="install-dialog">
+    <button id="closeInstallHelp" class="close-dialog" aria-label="Close">×</button>
+    <div class="dialog-drop">📲</div><p class="eyebrow">INSTALL PANI PAL</p><h2 id="installHelpTitle">Add to your Home Screen</h2>
+    <p class="install-intro" id="installHelpIntro">Follow the steps for your browser.</p>
+    <div id="installInstructions" class="install-instructions"></div>
+    <button id="installHelpAction" class="primary-btn" type="button">Got it</button>
+  </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="./app.js"></script>
+</body>
+</html>
