@@ -1,0 +1,10 @@
+{
+  "name": "pani-pal-push",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@netlify/blobs": "latest",
+    "web-push": "^3.6.7"
+  }
+}
