@@ -61,6 +61,7 @@ async function startReminders(){
   const sub=await getPushSubscription();if(!sub)return;
   await syncServer(sub);
   running=true;saveRunning();updateStatus();hint("Reminders will arrive in your notification bar, even when the app is closed.");showToast("Hydration reminders started.");
+  if(isAndroid&&!localStorage.getItem("paniPalTipShown")){try{localStorage.setItem("paniPalTipShown","1")}catch{}openTip()}
  }catch(e){console.error(e);showToast("Could not start: "+e.message)}
 }
 async function stopReminders(){
@@ -141,3 +142,13 @@ loadSettings();
  updateStatus();
 })();
 updateStatus();
+
+// ---- Android reliability tip (battery / autostart) ----
+const tipDialog=$("tipDialog");
+const isAndroid=/Android/i.test(navigator.userAgent||"");
+if(isAndroid)$("tipBtn").hidden=false;
+function openTip(){if(!tipDialog.open)tipDialog.showModal()}
+$("tipBtn").addEventListener("click",openTip);
+$("closeTip").addEventListener("click",()=>tipDialog.close());
+$("tipOk").addEventListener("click",()=>tipDialog.close());
+tipDialog.addEventListener("click",e=>{if(e.target===tipDialog)tipDialog.close()});

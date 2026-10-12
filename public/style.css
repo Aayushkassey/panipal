@@ -3,3 +3,5 @@
 @media(max-width:520px){.app-shell{width:min(100% - 22px,720px);padding-top:14px}.topbar{gap:9px}.brand-mark{width:43px;height:43px}.brand-text .eyebrow{font-size:8px;letter-spacing:1px}.brand-text h1{font-size:22px}.install-btn{padding:10px;font-size:11px}.card{padding:18px;border-radius:20px}.hero{min-height:225px}.hero-copy{max-width:72%}.hero p{font-size:12px}.water-art{right:-24px;top:62px;width:100px;height:100px}.water-drop{font-size:49px}.time-grid{gap:10px}.button-row{grid-template-columns:1fr}.install-card{flex-wrap:wrap}.install-card-content{min-width:calc(100% - 65px)}.install-card>.secondary-btn{width:100%}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 .native .install-btn,.native .hero-install,.native .install-card{display:none!important}.native .app-shell{padding-top:calc(24px + env(safe-area-inset-top,0px))}
+
+.link-btn{display:block;margin:10px auto 0;background:none;border:0;color:var(--teal);font-weight:800;font-size:11px;text-decoration:underline;padding:6px}

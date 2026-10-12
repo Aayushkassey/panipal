@@ -53,6 +53,7 @@
       <div class="next-reminder"><span class="next-icon">◷</span><div><small>Next reminder</small><strong id="nextTime">Not scheduled</strong></div></div>
       <div class="button-row"><button id="toggleBtn" class="primary-btn" type="button">▶ Start reminders</button><button id="testBtn" class="secondary-btn" type="button">Test popup</button></div>
       <p class="permission-hint" id="permissionHint">Tap Start and allow notifications when asked. Sound and vibration follow your phone's notification settings.</p>
+      <button id="tipBtn" class="link-btn" type="button" hidden>Not getting reminders when the app is closed?</button>
     </section>
 
     <section class="install-card card">
@@ -77,6 +78,19 @@
     <p class="install-intro" id="installHelpIntro">Follow the steps for your browser.</p>
     <div id="installInstructions" class="install-instructions"></div>
     <button id="installHelpAction" class="primary-btn" type="button">Got it</button>
+  </dialog>
+  <dialog id="tipDialog" class="install-dialog">
+    <button id="closeTip" class="close-dialog" aria-label="Close">×</button>
+    <div class="dialog-drop">🔋</div><p class="eyebrow">ONE-TIME SETUP</p><h2>Keep reminders reliable</h2>
+    <p class="install-intro">Some Android phones stop apps in the background. Do this once so reminders always arrive:</p>
+    <div class="install-instructions"><ol>
+      <li>Open phone <b>Settings → Apps → Pani Pal → Battery</b> and choose <b>Unrestricted</b> (or “No restrictions”).</li>
+      <li>If you see <b>Autostart</b> or <b>Background activity</b>, turn it <b>on</b>.</li>
+      <li>In the recent-apps screen, <b>lock</b> Pani Pal (long-press its card → Lock) if your phone has this option.</li>
+      <li>Don’t use <b>Force stop</b> or “Clean / Boost” apps on Pani Pal.</li>
+      <li>Check: tap <b>Test popup</b>, close the app, lock the phone. The notification should arrive.</li>
+    </ol></div>
+    <button id="tipOk" class="primary-btn" type="button">Got it</button>
   </dialog>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <script src="./app.js"></script>
